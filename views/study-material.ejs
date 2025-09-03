@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Material</title>
+    <link rel="stylesheet" href="/sidebar.css">
+    <link rel="stylesheet" href="/studymaterial/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <nav class="head">
+            <div class="lefticon">
+                <a class="LINK1" href="#">Student</a>
+            </div>
+            <div class="righticon">
+                <a href="#">
+                    <img width="50px" src="/assets/Screenshot 2025-02-23 171952.png">
+                </a>
+            </div>
+        </nav>
+        <%- include("sidebar.ejs") %>
+        <main class="main1" id="mainClass">
+            <div class="main_con">
+                <div class="sec_tit">
+                    <h2>STUDY MATERIAL</h2>
+                </div>
+                <% for(let i=0;i<title.length;i++){ %>
+                <div class="pahead">
+                    <code><%= title[i] %></code>
+                </div>
+                <div class="parent">
+                    <div class="card">
+                        <div class="title">PPT</div>
+                        <div class="icon">
+                            <img src="/assets/cousre.png">
+                        </div>
+                        <a href="" class="btn" target="_blank">View/Download</a>
+                    </div>
+                    <div class="card">
+                        <div class="title">Course Textbooks</div>
+                        <div class="icon">
+                            <img src="/assets/5078755.png">
+                        </div>
+                        <a href="" class="btn" target="_blank">View/Download</a>
+                    </div>
+                    <div class="card">
+                        <div class="title">Reference Book</div>
+                        <div class="icon">
+                            <img src="/assets/11675824.png">
+                        </div>
+                        <a href="" class="btn" target="_blank">View/Download</a>
+                    </div>
+                    <div class="card">
+                        <div class="title">Lecture</div>
+                        <div class="icon">
+                            <img src="/assets/video.png">
+                        </div>
+                        <a href="https://www.youtube.com/playlist?list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w" class="btn" target="_blank">View/Download</a>
+                    </div>
+                </div>
+                <% } %>
+                <div style="height: 30px; width: 100%; padding-top: 10px; "></div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

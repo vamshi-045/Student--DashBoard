@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timetable</title>
+  <link rel="stylesheet" href="/sidebar.css">
+  <link rel="stylesheet" href="/timetable/timetable.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <%- include('sidebar.ejs') %>
+
+  <nav class="head">
+    <div class="lefticon">
+        <a class="LINK1" href="#">Student</a>
+    </div>
+    <div class="righticon">
+        <a href="#">
+            <img width="50px" src="/assets/Screenshot 2025-02-23 171952.png">
+        </a>
+    </div>
+</nav>
+  <div class="main timetable">
+    <h1>TIME TABLE</h1>
+    <div class="underline"></div>
+    <table id="timeTable">
+      <tr>
+        <th></th>
+        <th>9:00 - 9:50</th>
+        <th>9:50 - 10:40</th>
+        <th>10:40 - 11:30</th>
+        <th>11:30 - 12:20</th>
+        <th>12:20 - 1:10</th>
+        <th>1:10 - 2:00</th>
+        <th>2:00 - 2:50</th>
+        <th>2:50 - 3:30</th>
+      </tr>
+      <tr>
+        <td>Monday</td>
+        <td id="mon1"></td>
+        <td id="mon2"></td>
+        <td id="mon3"></td>
+        <td id="mon4"></td>
+        <td id="mon5"></td>
+        <td id="mon6"></td>
+        <td id="mon7"></td>
+        <td id="mon8"></td>
+      </tr>
+      <tr>
+        <td>Tuesday</td>
+        <td id="tue1"></td>
+        <td id="tue2"></td>
+        <td id="tue3"></td>
+        <td id="tue4"></td>
+        <td id="tue5"></td>
+        <td id="tue6"></td>
+        <td id="tue7"></td>
+        <td id="tue8"></td>
+      </tr>
+      <tr>
+        <td>Wednesday</td>
+        <td id="wed1"></td>
+        <td id="wed2"></td>
+        <td id="wed3"></td>
+        <td id="wed4"></td>
+        <td id="wed5"></td>
+        <td id="wed6"></td>
+        <td id="wed7"></td>
+        <td id="wed8"></td>
+      </tr>
+      <tr>
+        <td>Thursday</td>
+        <td id="thu1"></td>
+        <td id="thu2"></td>
+        <td id="thu3"></td>
+        <td id="thu4"></td>
+        <td id="thu5"></td>
+        <td id="thu6"></td>
+        <td id="thu7"></td>
+        <td id="thu8"></td>
+      </tr>
+      <tr>
+        <td>Friday</td>
+        <td id="fri1"></td>
+        <td id="fri2"></td>
+        <td id="fri3"></td>
+        <td id="fri4"></td>
+        <td id="fri5"></td>
+        <td id="fri6"></td>
+        <td id="fri7"></td>
+        <td id="fri8"></td>
+      </tr>
+      <tr>
+        <td>Saturday</td>
+        <td id="sat1"></td>
+        <td id="sat2"></td>
+        <td id="sat3"></td>
+        <td id="sat4"></td>
+        <td id="sat5"></td>
+        <td id="sat6"></td>
+        <td id="sat7"></td>
+        <td id="sat8"></td>
+      </tr>
+    </table>
+    <br>
+    <br>
+  </div>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+   
+    <% if (typeof subjectColors !== 'undefined' && typeof timetable !== 'undefined') { %>
+      const subjectColors = {
+        <% Object.keys(subjectColors).forEach(function(key, index) { %>
+          "<%= key %>": "<%= subjectColors[key] %>"<%= index < Object.keys(subjectColors).length - 1 ? ',' : '' %>
+        <% }); %>
+      };
+      
+      const timetable = {
+        <% Object.keys(timetable).forEach(function(key, index) { %>
+          "<%= key %>": "<%= timetable[key] %>"<%= index < Object.keys(timetable).length - 1 ? ',' : '' %>
+        <% }); %>
+      };
+      
+      Object.keys(timetable).forEach(id => {
+        let cell = document.getElementById(id);
+        if (cell) {
+          let subject = timetable[id];
+          let className = subjectColors[subject];
+          cell.textContent = subject;
+          cell.classList.add("filled", className);
+        }
+      });
+    <% } else { %>
+      console.error("Timetable data or subject colors not provided");
+    <% } %>
+  });
+  </script>
+</body>
+
+</html>

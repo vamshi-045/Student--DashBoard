@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance</title>
+    <link rel="stylesheet" href="/sidebar.css" />
+    <link rel="stylesheet" href="/attendance/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  </head>
+  <body>
+    <div class="container">
+      <nav class="head">
+        <div class="lefticon">
+          <a class="LINK1" href="#">Student</a>
+        </div>
+        <div class="righticon">
+          <a href="#">
+            <img width="50" src="/assets/Screenshot 2025-02-23 171952.png" alt="Profile" />
+          </a>
+        </div>
+      </nav>
+
+      <%- include("sidebar.ejs") %>
+      <main class="main1">
+        <div class="sec_tit">
+          <h2>ATTENDANCE</h2>
+        </div>
+        
+        
+        <div class="attendance-container">
+         
+           <% for(let i=0;i<attendanceData.length;i++){ %>
+            
+          <div class="attendance-card" style="<%= i === attendanceData.length-1 ? 'background-color: #f0f0f0;' : '' %>">
+            <div class="skill">
+              <div class="outer">
+                <div class="inner">
+                  <div class="number" id="number<%= i+1 %>"></div>
+                </div>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220">
+                <circle
+                  cx="110"
+                  cy="110"
+                  r="97"
+                  stroke-linecap="round"
+                  stroke="<%= attendanceData[i].color %>"
+                  stroke-width="20"
+                  stroke-dasharray="610"
+                  stroke-dashoffset="610"
+                  class="progress-circle"
+                  data-percentage="<%= attendanceData[i].percentage %>"
+                  data-totaldash="610"
+                ></circle>
+              </svg>
+            </div>
+            <div class="subject-name"><%= attendanceData[i].subject %></div>
+            <div class="attendance-info">
+              <span class="present">Present: <%=attendanceData[i].present%></span>
+              <span class="absent">Absent: <%=attendanceData[i].absent%></span>
+              <span class="total">Total: <%=attendanceData[i].total%></span>
+            </div>
+          </div>
+
+          <% } %>
+         
+        </div>
+      </main>
+    </div>
+
+    <script>
+      
+      function animateProgress(numberId, targetPercentage) {
+        const numberEl = document.getElementById(numberId);
+        const card = numberEl.closest('.attendance-card');
+        const circle = card.querySelector('.progress-circle');
+        const totalDash = parseFloat(circle.getAttribute('data-totaldash'));
+        
+        let startTime = null;
+        const duration = 1000; 
+        
+
+        function easeOutQuad(t) {
+          return t * (2 - t);
+        }
+        
+        function animate(currentTime) {
+          if (!startTime) startTime = currentTime;
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          const easedProgress = easeOutQuad(progress);
+          const currentValue = Math.floor(targetPercentage * easedProgress);
+          
+          numberEl.innerHTML = currentValue + '%';
+          const currentDashoffset = totalDash - (totalDash * currentValue) / 100;
+          circle.style.strokeDashoffset = currentDashoffset;
+          
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          }
+        }
+        
+        requestAnimationFrame(animate);
+      }
+
+    
+      document.querySelectorAll('.progress-circle').forEach(circle => {
+        const numberId = circle.closest('.attendance-card').querySelector('.number').id;
+        const percentage = parseInt(circle.getAttribute('data-percentage'));
+        animateProgress(numberId, percentage);
+      });
+    </script>
+  </body>
+</html>

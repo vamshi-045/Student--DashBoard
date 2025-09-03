@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Select2 CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet" href="/complaints/comp_new.css">
+    <link rel="stylesheet" href="/sidebar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+    <%- include("sidebar.ejs") %>
+    <div class="main">
+    <h1 class="one">NEW COMPLAINT</h1>
+    <div class="underline"></div>
+    <form action="/newcomplaint" method="post">
+        <div class="ce">
+            <h1 class="two">Raise a complaint</h1>
+            <div class="form-group">
+                <label for="name">Title</label>
+                <input type="text" id="name" class="underline-input underline-input2" placeholder="Title" name="name" required>
+                <label for="request-type">Request Regarding</label>
+                <select id="request-type" class="underline-input underline-input3" name="request-type">
+                    <option value="Choose">Choose</option>
+                    <option value="Hostel">Hostel</option>
+                    <option value="Mess">Mess</option>
+                    <option value="Faculty">Faculty</option>
+                    <option value="Others">Other</option>
+                </select>
+                <label for="description">Description</label>
+                <textarea name="description" class="underline-input desc underline-input2" placeholder="Your Description here...."
+                    id="description" required></textarea>
+                    <button class="button" type="submit">
+                        Submit <span class="arrow">➜</span>
+                    </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#request-type").select2({
+                minimumResultsForSearch: 20
+            });
+        });
+
+
+        
+    </script>
+</body>
+
+</html>

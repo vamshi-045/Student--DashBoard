@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunities</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/opportunities/opportunities.css">
+    <link rel="stylesheet" href="/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+    <%- include("sidebar.ejs") %>
+    <nav class="head">
+        <div class="lefticon">
+            <a class="LINK1" href="#">Student</a>
+        </div>
+        <div class="righticon">
+            <a href="#">
+                <img width="50px" src="/assets/Screenshot 2025-02-23 171952.png">
+            </a>
+        </div>
+    </nav>
+    <div class="container-fluid container-1 main">
+        <div class="element">
+        <div class=" text-center ">
+            <h1 class="hd-1">OPPORTUNITIES</h1>
+            <div class="underline"></div>
+        </div>
+        <div class="row justify-content-center">
+            <% for(let i=0;i<opportunitiesData.length;i++) { %>
+            <div class="col-md-5 mt-5 mb-4">
+                <div class="card-1 p-3 ">
+                    <h2 class="hd-2"><%= opportunitiesData[i].title %></h2>
+                    <ul class="d-flex flex-row ul-1 list-unstyled ">
+                        <li class="d-flex align-items-center me-3">
+                            <img src="https://img.icons8.com/flat-round/64/000000/play--v1.png" class="img-1 me-2">
+                            <span class="span-hd">Starts on <%= new Date(opportunitiesData[i].start_date).toLocaleDateString() %></span>
+                        </li>
+                        <li class="d-flex align-items-center me-3">
+                            <img src="https://img.icons8.com/cute-clipart/64/000000/planner.png" class="img-1 me-2">
+                            <span class="span-hd"><%= opportunitiesData[i].duration %></span>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <img src="https://img.icons8.com/dusk/64/000000/hourglass-sand-top.png" class="img-1 me-2">
+                            <span class="span-hd">Apply by <%= new Date(opportunitiesData[i].end_date).toLocaleDateString() %></span>
+                        </li>
+                    </ul>
+                    <p><%= opportunitiesData[i].description %></p>
+                    <p><strong>Skills Required:</strong> <%= opportunitiesData[i].skillsrequired %></p>
+                    <a href="#" class="apply-1 mt-auto">Apply Now</a>
+                </div>
+            </div>
+            <% } %>
+           
+        </div>
+        </div>
+    </div>
+</body>
+</html>
