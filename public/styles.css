@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+* {
+    margin: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap :7rem;
+    padding: 0 2rem;
+}
+form{
+    width: 90%;
+    max-width: 400px;
+}
+.wave{
+   position: fixed;
+   bottom: 0px;
+   left: 0px;
+   height: 100vh;
+   z-index: -1;
+   margin: 0px;
+    padding: 0px;
+}
+.bg{
+   display: flex;
+   justify-content: end;
+   align-items: center;
+}
+.bg img{
+    width: 500px;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+}
+.flex{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+}
+
+.card img{
+    width: 100px;
+}
+input{
+    font-size: large;
+    height: 40px;
+    width: 100%;
+    max-width: 550px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #d9d9d9;
+    padding: 10px 10px 5px;
+    margin-left: 50px;
+}
+
+
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+    top: -5px;
+    font-size: 15px;
+    color: #999;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 2px solid #ccc; 
+    padding: 5px;
+    width: 90%;
+    position: relative;
+    margin: 30px 30px 0px 0px;
+    margin-left: 30px;
+}
+
+.input-container i {
+    color: #888;
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: color 0.3s ease;
+    margin-right: 10px;
+}
+
+.input-container input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    flex: 1;
+}
+
+.input-container label {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s;
+    color: #888;
+    font-size: 18px;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+.input-container:focus-within i {
+    color: #32be8f; 
+}
+
+.input-container:focus-within {
+    border-bottom: 2px solid #32be8f; 
+}
+
+
+.forgot-password{
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color: #999;
+    font-size: 0.9rem;
+    transition: .3s;
+}
+
+.button{
+    width: 90%;
+    max-width: 500px;
+    padding: 15px;
+    border: none;
+    background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px; 
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase; 
+}
+.google-button {
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    padding: 15px;
+    border: none;
+    background-color: #000;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px; 
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+.google-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px; 
+    height: 25px;
+    margin-right: 10px;
+    position: relative;
+}
+
+.google-icon i,
+.google-icon img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+
+.google-icon img {
+    visibility: hidden;
+}
+
+.google-button:hover .google-icon i {
+    visibility: hidden;
+}
+
+.google-button:hover .google-icon img {
+    visibility: visible;
+}
+
+p{
+    
+    font-weight: bold;
+    color: #464646;
+}
+form{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+}
+a{
+    text-align: right !important;
+    text-decoration: none;
+    outline: none;
+    color: #999;
+    font-size: 0.9rem;
+    transition: .3s;
+    /* margin-left: 50px; */
+    
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-gap: 3rem;
+        text-align: center;
+        padding: 0 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wave, .bg {
+        display: none;
+    }
+
+    .card {
+        width: 90%;
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    input, .button, .google-button {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .input-container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .input-container label {
+        left: 10px;
+    }
+    .fa-solid{
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        width: 95%;
+        max-width: 500px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    input, .button, .google-button {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .input-container {
+        width: 100%;
+    }
+    @media screen and (max-width: 1024px) {
+        .container {
+            grid-template-columns: 1fr;
+            grid-gap: 3rem;
+            text-align: center;
+            padding: 0 1rem;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .wave, .bg {
+            display: none;
+        }
+    
+        .card {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+    
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+    
+        input, .button, .google-button {
+            width: 100%;
+            max-width: 450px;
+        }
+    
+        .input-container {
+            width: 100%;
+            justify-content: center;
+        }
+    
+        .input-container label {
+            left: 10px;
+        }
+    }
+    
+    @media screen and (max-width: 768px) {
+        .container {
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .card {
+            width: 95%;
+            max-width: 500px;
+            padding: 20px;
+            text-align: center;
+        }
+    
+        input, .button, .google-button {
+            width: 100%;
+            max-width: 400px;
+        }
+    
+        .input-container {
+            width: 100%;
+        }
+    }
+    
+    @media screen and (max-width: 480px) {
+        .container {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .card {
+            width: 100%;
+            max-width: 350px;
+            padding: 15px;
+        }
+    
+        input, .button, .google-button {
+            width: 100%;
+            max-width: 300px;
+        }
+    
+        .input-container label {
+            left: 5px;
+            font-size: 14px;
+        }
+    }
+    .fa-solid{
+        visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 350px;
+        padding: 15px;
+    }
+
+    input, .button, .google-button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .input-container label {
+        left: 5px;
+        font-size: 14px;
+    }
+    .fa-solid{
+        visibility: hidden;
+    }
+}
+
+#timeTable{
+    font-size: 180px;
+    
+    
+}
+

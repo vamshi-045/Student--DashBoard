@@ -1,0 +1,251 @@
+.sidebar{
+    width: 260px !important; 
+    height: 100vh !important;
+    overflow: hidden !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    z-index: 99999999;
+}
+
+.sidebar-content {
+    height: calc(100vh - 54px);
+    display: flex;
+    flex-direction: column;
+    /* overflow-y: hidden !important; */
+    scrollbar-width: none;
+    gap: 6px !important;
+    padding-right: 10px;
+}
+
+
+.container-1 {
+    background-color:#f3f4f6;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.element {
+    display: flex;
+    flex-direction: column;  
+    overflow-x: hidden;   
+    overflow-y: scroll;
+    padding: 0;
+    gap: 15px;
+    white-space: nowrap;
+    background-color: #f3f4f6;
+    width:100%;
+    max-width: 1200px;  
+    margin: 0 auto;
+    margin-left: 260px;
+}
+
+.element::-webkit-scrollbar {
+    width: 1px;        
+    height: 1px;       
+}
+
+.element::-webkit-scrollbar-track {
+    background:#4CAF50;
+    border-radius: 10px;
+}
+
+.element::-webkit-scrollbar-thumb {
+    background: #4CAF50; 
+    border-radius: 10px;
+}
+
+.element::-webkit-scrollbar-thumb:hover {
+    background: #388E3C;
+}
+
+.hd-1{
+    font-family: "Roboto", sans-serif;
+    color: #006400;  
+    font-size: 36px;  
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+
+.underline {
+    position: relative;
+    width: 120px;
+    height: 1px;  
+    background-color: #e0e0e0;  
+    margin: 5px auto 20px;
+}
+
+
+.underline::after {
+    content: '';
+    position: absolute;
+    left: 30%; 
+    top: 0;
+    width: 40%;  
+    height: 300%;
+    background-color: #5ddb5d;  
+}
+
+.container-2 {
+    margin-top: 50px;  
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.card-1 {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;  
+    position: relative;
+}
+
+.card-1:hover {
+    transform: translateY(-10px);  
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);  
+}
+
+.img-container {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+    margin-top: -95px;
+    transition: all 0.3s ease;
+}
+
+.img-fluid {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 0 0 5px #4CAF50;
+}
+
+    /* Bounce animation on hover */
+.card-1:hover .img-fluid {
+    animation: bounceBorder 0.5s ease forwards;
+}
+
+@keyframes bounceBorder {
+    0% {
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 0 0 5px #4CAF50;
+    }
+    30% {
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 0 0 8px #4CAF50;
+    }
+    60% {
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 0 0 3px #4CAF50;
+    }
+    100% {
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1), 0 0 0 6px #4CAF50;
+    }
+}
+
+.hd-2{
+    font-size: 20px;
+    color: rgb(68, 68, 68);
+    text-transform: uppercase;
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
+.pg-1{
+    font-size: 14px;
+    color: rgb(172, 172, 172);
+    text-transform: uppercase;
+    margin: 0px;
+}
+.profile-icons {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;      
+}
+
+.profile-icons li {
+    margin: 0;
+    transition: transform 0.3s ease;
+}
+
+.profile-icons li:hover {
+    transform: translateY(-3px);    
+}
+
+.profile-icons img {
+    width: 24px;    
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.profile-icons a {
+    display: block;
+    padding: 5px;
+}
+
+.profile-icons a:hover img {
+    transform: scale(1.1); 
+}
+
+
+.col-lg-3 {
+    padding: 15px;
+}
+
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4CAF50;
+    border-radius: 4px;
+}
+
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #4CAF50 transparent;
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;  
+}
+
+body {
+    overflow-y: scroll;  
+}
+
+
+.container-1, .element, .container-2 {
+    overflow: visible;
+}
